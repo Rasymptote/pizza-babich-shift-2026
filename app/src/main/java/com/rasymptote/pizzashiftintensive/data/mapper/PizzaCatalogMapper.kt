@@ -40,17 +40,17 @@ fun PizzaDto.toPizza() = Pizza(
 )
 
 fun PizzaComponentDto.toPizzaIngredient() : PizzaIngredient = PizzaIngredient(
-    type = Ingredient.valueOf(type),
+    type = Ingredient.valueOf(type.uppercase()),
     price = price,
     img = img
 )
 
 fun PizzaOptionDto.toPizzaSize() : PizzaSize = PizzaSize(
-    type = Size.valueOf(type),
+    type = Size.valueOf(type.uppercase()),
     price = price
 )
 
 fun PizzaOptionDto.toPizzaDough() : PizzaDough = PizzaDough(
-    type = Dough.valueOf(type),
+    type = Dough.valueOf(type.uppercase()),
     price = price
 )
