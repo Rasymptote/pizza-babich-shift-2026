@@ -1,7 +1,7 @@
 package com.rasymptote.pizzashiftintensive.domain.model
 
 data class Pizza(
-    val id: Int,
+    val id: String,
     val name: String,
     val ingredients: List<PizzaIngredient>,
     val toppings: List<PizzaIngredient>,
