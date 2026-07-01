@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive
+package com.rasymptote.pizzashiftintensive.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.rasymptote.pizzashiftintensive.ui.theme.PizzaShiftIntensiveTheme
+import com.rasymptote.pizzashiftintensive.presentation.ui.theme.PizzaShiftIntensiveTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
