@@ -5,8 +5,9 @@ import com.rasymptote.pizzashiftintensive.data.mapper.toPizzas
 import com.rasymptote.pizzashiftintensive.data.remote.PizzaApiService
 import com.rasymptote.pizzashiftintensive.domain.model.Pizza
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
+import javax.inject.Inject
 
-class PizzaRepositoryImpl(
+class PizzaRepositoryImpl @Inject constructor(
     private val pizzaApiService: PizzaApiService
 ) : PizzaRepository {
 
