@@ -2,7 +2,7 @@ package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rasymptote.pizzashiftintensive.domain.usecase.GetPricedPizzasUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.GetBasePricedPizzasUseCase
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.mapper.toScreenModel
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.PizzaCatalogScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PizzaCatalogViewModel @Inject constructor(
-    private val getPricedPizzasUseCase: GetPricedPizzasUseCase
+    private val getBasePricedPizzasUseCase: GetBasePricedPizzasUseCase,
 ) : ViewModel() {
 
     private val _state =
@@ -29,7 +29,7 @@ class PizzaCatalogViewModel @Inject constructor(
 
         viewModelScope.launch {
             try {
-                val pizzas = getPricedPizzasUseCase()
+                val pizzas = getBasePricedPizzasUseCase()
                 _state.value = PizzaCatalogScreenState.Content(pizzas.map { it.toScreenModel() })
             } catch (e: Exception) {
                 _state.value = PizzaCatalogScreenState.Error(e.message ?: "Неизвестная ошибка")
