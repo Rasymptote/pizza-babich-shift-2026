@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PizzaListViewModel @Inject constructor(
+class PizzaCatalogViewModel @Inject constructor(
     private val getAllPizzasUseCase: GetAllPizzasUseCase
 ) : ViewModel() {
 

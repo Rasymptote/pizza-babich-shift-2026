@@ -13,12 +13,12 @@ import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.components.PizzaCatalog
-import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaListViewModel
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PizzaCatalogScreen(
-    viewModel: PizzaListViewModel = viewModel()
+    viewModel: PizzaCatalogViewModel = viewModel()
 ) {
 
     val state by viewModel.state.collectAsState()
