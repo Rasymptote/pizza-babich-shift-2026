@@ -6,6 +6,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
+import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Converter
@@ -16,7 +18,11 @@ import javax.inject.Singleton
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class ApiBaseUrl
+annotation class PizzaApiBaseUrl
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class ImageBaseUrl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,9 +30,15 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    @ApiBaseUrl
-    fun provideBaseUrl(): String =
-        "https://juniorsbootcamp.ru/"
+    @PizzaApiBaseUrl
+    fun providePizzaApiBaseUrl(): HttpUrl =
+        "https://juniorsbootcamp.ru/api/pizza/".toHttpUrl()
+
+    @Provides
+    @Singleton
+    @ImageBaseUrl
+    fun provideImageBaseUrl(): HttpUrl =
+        "https://juniorsbootcamp.ru/api/".toHttpUrl()
 
     @Provides
     @Singleton
@@ -52,7 +64,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(
-        @ApiBaseUrl baseUrl: String,
+        @PizzaApiBaseUrl baseUrl: HttpUrl,
         converterFactory: Converter.Factory,
         okHttpClient: OkHttpClient
     ): Retrofit =
