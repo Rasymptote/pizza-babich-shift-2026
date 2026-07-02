@@ -12,7 +12,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
-import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.components.PizzaCatalog
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.component.PizzaCatalog
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
