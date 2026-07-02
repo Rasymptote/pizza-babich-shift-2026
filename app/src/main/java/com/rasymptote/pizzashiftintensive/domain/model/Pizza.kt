@@ -18,5 +18,5 @@ data class Pizza(
     val isGlutenFree: Boolean,
     val isNew: Boolean,
     val isHit: Boolean,
-    val img: String,
+    val imageUrl: String,
     )
