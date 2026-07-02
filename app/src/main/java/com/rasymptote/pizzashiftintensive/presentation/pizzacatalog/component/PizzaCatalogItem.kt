@@ -11,12 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.PizzaScreenModel
 
 @Composable
 fun PizzaCatalogItem(
-    pizza: Pizza,
-    onClick: (Pizza) -> Unit
+    pizza: PizzaScreenModel,
+    onClick: (PizzaScreenModel) -> Unit
 ) {
     Row(
         modifier = Modifier

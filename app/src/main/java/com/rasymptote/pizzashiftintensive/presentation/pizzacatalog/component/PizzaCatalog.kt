@@ -7,13 +7,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.PizzaScreenModel
 
 @Composable
 fun PizzaCatalog(
-    pizzas: List<Pizza>,
+    pizzas: List<PizzaScreenModel>,
     modifier: Modifier = Modifier,
-    onPizzaCardClick: (Pizza) -> Unit
+    onPizzaCardClick: (PizzaScreenModel) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,
@@ -25,7 +25,7 @@ fun PizzaCatalog(
     ) {
         items(
             items = pizzas,
-            key = Pizza::id
+            key = PizzaScreenModel::id
         ) { pizza ->
 
             PizzaCatalogItem(
