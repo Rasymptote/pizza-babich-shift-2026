@@ -1,9 +1,10 @@
 package com.rasymptote.pizzashiftintensive.di
 
+import com.rasymptote.pizzashiftintensive.domain.mapper.BasePricedPizzaMapper
 import com.rasymptote.pizzashiftintensive.domain.pricing.BasePriceCalculator
 import com.rasymptote.pizzashiftintensive.domain.pricing.SmallestSizeBasedPricing
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
-import com.rasymptote.pizzashiftintensive.domain.usecase.GetPricedPizzasUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.GetBasePricedPizzasUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +19,15 @@ class DomainModule {
             SmallestSizeBasedPricing()
 
         @Provides
-        fun provideGetAllPizzasWithBasePriceUseCase(
-            pizzaRepository: PizzaRepository,
+        fun provideBasePricedPizzaMapper(
             basePriceCalculator: BasePriceCalculator
-        ): GetPricedPizzasUseCase =
-            GetPricedPizzasUseCase(pizzaRepository, basePriceCalculator)
+        ): BasePricedPizzaMapper =
+            BasePricedPizzaMapper(basePriceCalculator)
+
+        @Provides
+        fun provideGetBasePricedPizzaUseCase(
+            pizzaRepository: PizzaRepository,
+            basePricedPizzaMapper: BasePricedPizzaMapper
+        ): GetBasePricedPizzasUseCase =
+            GetBasePricedPizzasUseCase(pizzaRepository, basePricedPizzaMapper)
 }
