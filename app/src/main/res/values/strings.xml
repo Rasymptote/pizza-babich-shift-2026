@@ -3,4 +3,30 @@
     <string name="error_retry_button">Попробуйте еще раз</string>
     <string name="default_title">Пиццы</string>
     <string name="pizza_price">от %1$d ₽</string>
+
+    <string name="ingredient_ham">ветчина</string>
+    <string name="ingredient_mushrooms">грибы</string>
+    <string name="ingredient_feta">сыр фета</string>
+    <string name="ingredient_green_pepper">зеленый перец</string>
+    <string name="ingredient_mozzarella">моцарелла</string>
+    <string name="ingredient_bacon">бекон</string>
+    <string name="ingredient_basil">базилик</string>
+    <string name="ingredient_chile">чили</string>
+    <string name="ingredient_onion">лук</string>
+    <string name="ingredient_tomato">помидоры</string>
+    <string name="ingredient_cheddar">сыр чеддер</string>
+    <string name="ingredient_pepperoni">пепперони</string>
+    <string name="ingredient_shrimp">креветки</string>
+    <string name="ingredient_pickle">огурцы</string>
+    <string name="ingredient_parmesan">сыр пармезан</string>
+    <string name="ingredient_meatballs">митболы</string>
+    <string name="ingredient_pineapple">ананас</string>
+    <string name="ingredient_chicken_fillet">куриное филе</string>
+
+    <string name="dough_thin">тонкое</string>
+    <string name="dough_thick">традиционное</string>
+
+    <string name="size_small">маленькая</string>
+    <string name="size_medium">средняя</string>
+    <string name="size_large">большая</string>
 </resources>
