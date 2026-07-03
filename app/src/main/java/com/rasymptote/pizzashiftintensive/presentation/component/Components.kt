@@ -27,7 +27,7 @@ fun Title(
     text: String = stringResource(R.string.default_title)
 ) {
     Text(
-        text =  text,
+        text = text,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         modifier = modifier.padding(16.dp)
