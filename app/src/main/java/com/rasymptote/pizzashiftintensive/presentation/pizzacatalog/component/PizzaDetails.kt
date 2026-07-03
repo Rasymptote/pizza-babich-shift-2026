@@ -8,25 +8,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.PizzaScreenModel
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePricedPizza
 
 @Composable
 fun PizzaDetails(
-    pizza: PizzaScreenModel,
+    pizza: BasePricedPizza,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
         Text(
-            text = pizza.name,
+            text = pizza.pizza.name,
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold
         )
         Text(
-            text = pizza.description,
+            text = pizza.pizza.description,
             fontSize = 16.sp,
         )
         Text(
-            text = stringResource(R.string.pizza_price, pizza.initialPrice),
+            text = stringResource(R.string.pizza_price, pizza.basePrice),
             fontSize = 18.sp,
             fontWeight = FontWeight.SemiBold
         )

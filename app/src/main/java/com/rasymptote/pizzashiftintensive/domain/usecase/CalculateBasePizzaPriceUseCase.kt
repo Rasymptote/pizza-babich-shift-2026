@@ -1,0 +1,8 @@
+package com.rasymptote.pizzashiftintensive.domain.usecase
+
+import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+
+class CalculateBasePizzaPriceUseCase {
+    operator fun invoke(pizza: Pizza): Int =
+        pizza.sizes.minOfOrNull { it.price } ?: 0
+}

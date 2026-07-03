@@ -32,6 +32,10 @@ fun PizzaCatalogScreen(
     ) { padding ->
 
         when (val currentState = state) {
+            PizzaCatalogScreenState.Initial -> {
+                viewModel.getBasePricedPizzas()
+            }
+
             PizzaCatalogScreenState.Loading -> {
                 FullScreenProgressIndicator()
             }
@@ -40,7 +44,7 @@ fun PizzaCatalogScreen(
                 ErrorMessage(
                     message = currentState.message,
                     onRetry = {
-                        viewModel.getAllPizzas()
+                        viewModel.getBasePricedPizzas()
                     }
                 )
             }
