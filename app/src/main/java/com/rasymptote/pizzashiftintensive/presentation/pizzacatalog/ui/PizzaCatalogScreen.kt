@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.rasymptote.pizzashiftintensive.R
 import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
@@ -26,7 +28,7 @@ fun PizzaCatalogScreen(
     Scaffold(
         topBar = {
             TopAppBar (
-                { Title() }
+                { Title(text = stringResource(R.string.default_title)) }
             )
         }
     ) { padding ->
@@ -43,6 +45,7 @@ fun PizzaCatalogScreen(
             is PizzaCatalogScreenState.Error -> {
                 ErrorMessage(
                     message = currentState.message,
+                    positiveButtonText = stringResource(R.string.error_retry_button),
                     onRetry = {
                         viewModel.getBasePricedPizzas()
                     }

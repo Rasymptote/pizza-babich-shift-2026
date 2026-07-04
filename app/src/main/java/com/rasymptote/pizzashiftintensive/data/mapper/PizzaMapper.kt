@@ -49,7 +49,7 @@ class PizzaMapper @Inject constructor(
         PizzaIngredient(
             type = Ingredient.valueOf(dto.type.uppercase()),
             price = dto.price,
-            img = dto.img
+            imageUrl = buildImageUrl(dto.img)
         )
 
     private fun mapSize(dto: PizzaOptionDto): PizzaSize =
