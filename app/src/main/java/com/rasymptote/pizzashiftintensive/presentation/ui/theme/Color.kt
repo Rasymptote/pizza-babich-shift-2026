@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.ui.theme
+package com.rasymptote.pizzashiftintensive.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

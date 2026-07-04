@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Pizza Shift Intensive</string>
+    <string name="error_retry_button">Попробуйте еще раз</string>
+    <string name="default_title">Пиццы</string>
+    <string name="pizza_price">от %1$d ₽</string>
 </resources>
