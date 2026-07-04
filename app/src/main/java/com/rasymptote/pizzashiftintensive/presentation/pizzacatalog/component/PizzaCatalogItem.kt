@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import com.rasymptote.pizzashiftintensive.presentation.component.Image
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePricedPizza
 
 @Composable
@@ -25,8 +25,8 @@ fun PizzaCatalogItem(
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        AsyncImage(
-            model = pizza.pizza.imageUrl,
+        Image(
+            imageUrl = pizza.pizza.imageUrl,
             contentDescription = pizza.pizza.name,
             modifier = Modifier.size(120.dp)
         )

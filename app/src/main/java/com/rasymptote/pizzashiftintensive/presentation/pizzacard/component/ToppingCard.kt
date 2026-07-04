@@ -1,12 +1,10 @@
 package com.rasymptote.pizzashiftintensive.presentation.pizzacard.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -22,9 +20,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.AsyncImage
 import com.rasymptote.pizzashiftintensive.R
+import com.rasymptote.pizzashiftintensive.domain.model.Ingredient
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.presentation.component.Image
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 
 @Composable
@@ -37,37 +36,44 @@ fun ToppingCard(
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        onClick = { onToppingClicked(topping) },
         modifier = modifier
-            .clickable {
-                onToppingClicked(topping)
-            }
     ) {
         Column(
             modifier = Modifier
                 .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
 
-            AsyncImage(
-                model = topping.imageUrl,
+            Image(
+                imageUrl = topping.imageUrl,
                 contentDescription = stringResource(topping.type.titleRes()),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(88.dp)
+                    .padding(horizontal = 8.dp)
+                    .padding(top = 8.dp)
             )
 
-            Text(
-                text = stringResource(topping.type.titleRes()),
-                fontSize = 16.sp,
-                textAlign = TextAlign.Center,
-                lineHeight = 16.sp,
-                modifier = Modifier.weight(1f),
-            )
+            ToppingTitle(toppingType = topping.type, modifier = Modifier.weight(1f))
 
             ToppingPriceBadge(price = topping.price)
         }
     }
+}
+
+@Composable
+private fun ToppingTitle(
+    toppingType: Ingredient,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = stringResource(toppingType.titleRes()),
+        fontSize = 16.sp,
+        textAlign = TextAlign.Center,
+        lineHeight = 16.sp,
+        modifier = modifier,
+    )
 }
 
 @Composable

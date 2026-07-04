@@ -23,16 +23,22 @@ fun ToppingsSection(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text(
-            text = stringResource(R.string.toppings_section),
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp
-        )
+
+        ToppingsSectionTitle()
 
         ToppingsList(
-            pizzaCard = pizzaCard,
+            toppings = pizzaCard.pizza.toppings,
             onToppingClicked = onToppingClicked,
-            rowSize = 3,
+            columns = 3
         )
     }
+}
+
+@Composable
+private fun ToppingsSectionTitle() {
+    Text(
+        text = stringResource(R.string.toppings_section),
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp
+    )
 }

@@ -11,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.rasymptote.pizzashiftintensive.R
 import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
@@ -37,6 +39,10 @@ fun PizzaCardScreen(
     ) { padding ->
 
         when (val currentState = state) {
+            PizzaCardScreenState.Initial -> {
+                viewModel.getPizzaCard("1")
+            }
+
             PizzaCardScreenState.Loading -> {
                 FullScreenProgressIndicator()
             }
@@ -44,6 +50,7 @@ fun PizzaCardScreen(
             is PizzaCardScreenState.Error -> {
                 ErrorMessage(
                     message = currentState.message,
+                    positiveButtonText = stringResource(R.string.error_retry_button),
                     onRetry = {}
                 )
             }

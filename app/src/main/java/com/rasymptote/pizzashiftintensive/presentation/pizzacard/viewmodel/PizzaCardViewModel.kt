@@ -5,10 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaDough
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
-import com.rasymptote.pizzashiftintensive.domain.usecase.GetBasePricedPizzaByIdUseCase
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.mapper.toScreenModel
+import com.rasymptote.pizzashiftintensive.domain.usecase.CalculateBasePizzaPriceUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.GetPizzaByIdUseCase
+import com.rasymptote.pizzashiftintensive.presentation.pizzacard.mapper.toPizzaCard
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.ui.PizzaCardScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -17,28 +19,32 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PizzaCardViewModel @Inject constructor(
-    private val getBasePricedPizzaByIdUseCase: GetBasePricedPizzaByIdUseCase
+    private val getPizzaByIdUseCase: GetPizzaByIdUseCase,
+    private val calculateBasePizzaPriceUseCase: CalculateBasePizzaPriceUseCase,
 ) : ViewModel() {
 
     private val _state =
-        MutableStateFlow<PizzaCardScreenState>(PizzaCardScreenState.Loading)
+        MutableStateFlow<PizzaCardScreenState>(PizzaCardScreenState.Initial)
 
     val state = _state.asStateFlow()
 
-    init {
-        getPizzaCard("1")
-    }
-
-    fun getPizzaCard(id: String) = viewModelScope.launch {
+    fun getPizzaCard(id: String) {
         _state.value = PizzaCardScreenState.Loading
 
-        runCatching {
-            getBasePricedPizzaByIdUseCase(id)
-        }.onSuccess {
-            _state.value = PizzaCardScreenState.Content(it.toScreenModel())
-        }.onFailure {
-            _state.value = PizzaCardScreenState.Error(it.message ?: "Неизвестная ошибка")
+        viewModelScope.launch(exceptionHandler) {
+            val pizza = getPizzaByIdUseCase(pizzaId = id)
+            val pizzaBasePrice = calculateBasePizzaPriceUseCase(pizza = pizza)
+            _state.value = PizzaCardScreenState.Content(
+                pizza.toPizzaCard(pizzaBasePrice)
+            )
         }
+    }
+
+    private val exceptionHandler = CoroutineExceptionHandler {
+            _, throwable ->
+        _state.value = PizzaCardScreenState.Error(
+            throwable.message ?: "Неизвестная ошибка"
+        )
     }
 
     private inline fun updateContent(

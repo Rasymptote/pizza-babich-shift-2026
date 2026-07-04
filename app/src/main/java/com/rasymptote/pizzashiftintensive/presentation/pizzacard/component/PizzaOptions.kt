@@ -3,6 +3,10 @@ package com.rasymptote.pizzashiftintensive.presentation.pizzacard.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -19,24 +23,52 @@ fun PizzaOptions(
     onDoughSelected: (PizzaDough) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier,
+    Column(
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-
-        PizzaSelector(
-            items = pizzaCard.pizza.sizes,
-            selectedItem = pizzaCard.selectedSize,
-            onItemSelected = onSizeSelected,
-            label = { stringResource(it.type.titleRes()) },
+        PizzaOptionsSelector(
+            items = pizzaCard.pizza.sizes.map { stringResource(it.type.titleRes()) },
+            selectedIndex = pizzaCard.pizza.sizes.indexOf(pizzaCard.selectedSize),
+            onSelected = { index ->
+                onSizeSelected(pizzaCard.pizza.sizes[index])
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
-        PizzaSelector(
-            items = pizzaCard.pizza.doughs,
-            selectedItem = pizzaCard.selectedDough,
-            onItemSelected = onDoughSelected,
-            label = { stringResource(it.type.titleRes()) },
+        PizzaOptionsSelector(
+            items = pizzaCard.pizza.doughs.map { stringResource(it.type.titleRes()) },
+            selectedIndex = pizzaCard.pizza.doughs.indexOf(pizzaCard.selectedDough),
+            onSelected = { index ->
+                onDoughSelected(pizzaCard.pizza.doughs[index])
+            },
             modifier = Modifier.fillMaxWidth()
         )
+    }
+}
+
+@Composable
+private fun PizzaOptionsSelector(
+    items: List<String>,
+    selectedIndex: Int,
+    onSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    SingleChoiceSegmentedButtonRow(
+        modifier = modifier
+    ) {
+        items.forEachIndexed { index, title ->
+            SegmentedButton(
+                selected = index == selectedIndex,
+                onClick = { onSelected(index) },
+                shape = SegmentedButtonDefaults.itemShape(
+                    index = index,
+                    count = items.size
+                ),
+                label = {
+                    Text(title)
+                }
+            )
+        }
     }
 }
