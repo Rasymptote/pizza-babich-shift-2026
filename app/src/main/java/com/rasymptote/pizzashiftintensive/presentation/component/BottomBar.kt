@@ -25,7 +25,11 @@ fun BottomBar(
             .fillMaxWidth()
             .padding(16.dp),
         shape = RoundedCornerShape(40.dp),
-        border = BorderStroke(1.dp, Color.Black),
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(
+            1.dp,
+            MaterialTheme.colorScheme.outline
+        ),
     ) {
         Row(
             modifier = Modifier
@@ -54,7 +58,12 @@ private fun BottomBarItem(
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(50.dp))
-            .background(if (selected) Color(0xFFF14E1D) else Color.Transparent)
+            .background(
+                if (selected)
+                    MaterialTheme.colorScheme.primary
+                else
+                    Color.Transparent
+            )
             .clickable(onClick = onClick)
             .padding(vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -62,7 +71,11 @@ private fun BottomBarItem(
         Icon(
             painter = option.icon(),
             contentDescription = null,
-            tint = if (selected) Color.White else Color.Black,
+            tint = if (selected) {
+                MaterialTheme.colorScheme.onPrimary
+            } else {
+                MaterialTheme.colorScheme.outline
+            },
             modifier = Modifier.size(24.dp)
         )
 
@@ -70,7 +83,11 @@ private fun BottomBarItem(
 
         Text(
             text = option.label(),
-            color = if (selected) Color.White else Color.Black
+            color = if (selected) {
+                MaterialTheme.colorScheme.onPrimary
+            } else {
+                MaterialTheme.colorScheme.outline
+            }
         )
     }
 }

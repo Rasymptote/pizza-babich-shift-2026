@@ -3,6 +3,7 @@ package com.rasymptote.pizzashiftintensive.presentation.pizzacard.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
@@ -64,6 +65,16 @@ private fun PizzaOptionsSelector(
                 shape = SegmentedButtonDefaults.itemShape(
                     index = index,
                     count = items.size
+                ),
+                colors = SegmentedButtonDefaults.colors(
+                    activeContainerColor = MaterialTheme.colorScheme.primary,
+                    activeContentColor = MaterialTheme.colorScheme.onPrimary,
+
+                    inactiveContainerColor = MaterialTheme.colorScheme.surface,
+                    inactiveContentColor = MaterialTheme.colorScheme.onSurface,
+
+                    activeBorderColor = MaterialTheme.colorScheme.primary,
+                    inactiveBorderColor = MaterialTheme.colorScheme.outline
                 ),
                 label = {
                     Text(title)

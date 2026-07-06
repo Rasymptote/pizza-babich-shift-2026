@@ -9,12 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -36,9 +36,11 @@ fun ToppingCard(
     Card(
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) Color(0xFFFFF3E0) else Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 6.dp else 2.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 2.dp
+        ),
         onClick = { onToppingSelected(topping) },
         modifier = modifier
     ) {
@@ -62,7 +64,10 @@ fun ToppingCard(
                 modifier = Modifier.weight(1f)
             )
 
-            ToppingPriceBadge(price = topping.price)
+            ToppingPriceBadge(
+                price = topping.price,
+                isSelected = isSelected
+            )
         }
     }
 }
@@ -84,15 +89,28 @@ private fun ToppingTitle(
 @Composable
 private fun ToppingPriceBadge(
     price: Int,
+    isSelected: Boolean,
     modifier: Modifier = Modifier
 ) {
     val currency = stringResource(R.string.currency_rub)
+
+    val background = if (isSelected) {
+        MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)
+    } else {
+        MaterialTheme.colorScheme.surfaceVariant
+    }
+
+    val textColor = if (isSelected) {
+        MaterialTheme.colorScheme.primary
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
 
     Box(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(50))
-            .background(Color(0xFFEBEBEB))
+            .background(background)
             .padding(vertical = 4.dp, horizontal = 12.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -100,6 +118,7 @@ private fun ToppingPriceBadge(
             text = stringResource(R.string.price_format, price, currency),
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold,
+            color = textColor
         )
     }
 }
