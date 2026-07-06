@@ -5,7 +5,7 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 
 fun Pizza.toPizzaCard(basePrice: Int) = PizzaCard(
     this,
-    selectedToppings = emptyList(),
+    selectedToppings = emptySet(),
     selectedDough = doughs.first(),
     selectedSize = sizes.first(),
     price = basePrice

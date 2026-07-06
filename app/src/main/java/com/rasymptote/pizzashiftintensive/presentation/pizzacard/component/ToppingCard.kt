@@ -29,19 +29,21 @@ import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 @Composable
 fun ToppingCard(
     topping: PizzaIngredient,
+    isSelected: Boolean,
     onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
         shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isSelected) Color(0xFFFFF3E0) else Color.White
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 6.dp else 2.dp),
         onClick = { onToppingSelected(topping) },
         modifier = modifier
     ) {
         Column(
-            modifier = Modifier
-                .padding(8.dp),
+            modifier = Modifier.padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
@@ -55,7 +57,10 @@ fun ToppingCard(
                     .padding(top = 8.dp)
             )
 
-            ToppingTitle(toppingType = topping.type, modifier = Modifier.weight(1f))
+            ToppingTitle(
+                toppingType = topping.type,
+                modifier = Modifier.weight(1f)
+            )
 
             ToppingPriceBadge(price = topping.price)
         }

@@ -63,6 +63,19 @@ class PizzaCardViewModel @Inject constructor(
         it.copy(pizzaCard = it.pizzaCard.copy(selectedDough = dough))
     }
 
-    fun onToppingSelected(topping: PizzaIngredient) {
+    fun onToppingSelected(topping: PizzaIngredient) = updateContent { state ->
+        val current = state.pizzaCard.selectedToppings
+
+        val updated = if (topping in current) {
+            current - topping
+        } else {
+            current + topping
+        }
+
+        state.copy(
+            pizzaCard = state.pizzaCard.copy(
+                selectedToppings = updated
+            )
+        )
     }
 }

@@ -7,7 +7,7 @@ import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
 
 data class PizzaCard(
     val pizza: Pizza,
-    val selectedToppings: List<PizzaIngredient>,
+    val selectedToppings: Set<PizzaIngredient>,
     val selectedDough: PizzaDough,
     val selectedSize: PizzaSize,
     val price: Int
