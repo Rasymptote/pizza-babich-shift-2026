@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.pizzacard.ui
+package com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel
 
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 

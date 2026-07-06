@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.rasymptote.pizzashiftintensive.domain.usecase.CalculateBasePizzaPriceUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.GetPizzasUseCase
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePricedPizza
-import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.PizzaCatalogScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
