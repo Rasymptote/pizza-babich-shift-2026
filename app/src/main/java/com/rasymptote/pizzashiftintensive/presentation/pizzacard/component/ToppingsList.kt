@@ -16,7 +16,7 @@ import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
 @Composable
 fun ToppingsList(
     toppings: List<PizzaIngredient>,
-    onToppingClicked: (PizzaIngredient) -> Unit,
+    onToppingSelected: (PizzaIngredient) -> Unit,
     columns: Int,
     modifier: Modifier = Modifier
 ) {
@@ -30,7 +30,7 @@ fun ToppingsList(
             ToppingsRow(
                 toppings = row,
                 columns = columns,
-                onToppingClicked = onToppingClicked
+                onToppingSelected = onToppingSelected
             )
         }
     }
@@ -40,7 +40,7 @@ fun ToppingsList(
 private fun ToppingsRow(
     toppings: List<PizzaIngredient>,
     columns: Int,
-    onToppingClicked: (PizzaIngredient) -> Unit,
+    onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -52,7 +52,7 @@ private fun ToppingsRow(
         toppings.forEach { topping ->
             ToppingCard(
                 topping = topping,
-                onToppingClicked = onToppingClicked,
+                onToppingSelected = onToppingSelected,
                 modifier = Modifier.weight(1f)
             )
         }

@@ -29,14 +29,14 @@ import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 @Composable
 fun ToppingCard(
     topping: PizzaIngredient,
-    onToppingClicked: (PizzaIngredient) -> Unit,
+    onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        onClick = { onToppingClicked(topping) },
+        onClick = { onToppingSelected(topping) },
         modifier = modifier
     ) {
         Column(

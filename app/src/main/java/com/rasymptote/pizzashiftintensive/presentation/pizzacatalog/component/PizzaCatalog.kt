@@ -13,7 +13,7 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePr
 fun PizzaCatalog(
     pizzas: List<BasePricedPizza>,
     modifier: Modifier = Modifier,
-    onPizzaCardClick: (BasePricedPizza) -> Unit
+    onPizzaCardClick: (String) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,

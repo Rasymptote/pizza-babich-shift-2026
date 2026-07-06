@@ -16,12 +16,12 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePr
 @Composable
 fun PizzaCatalogItem(
     pizza: BasePricedPizza,
-    onClick: (BasePricedPizza) -> Unit
+    onClick: (String) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick(pizza) },
+            .clickable { onClick(pizza.pizza.id) },
         verticalAlignment = Alignment.CenterVertically
     ) {
 

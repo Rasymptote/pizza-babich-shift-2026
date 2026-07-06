@@ -16,7 +16,7 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 @Composable
 fun ToppingsSection(
     pizzaCard: PizzaCard,
-    onToppingClicked: (PizzaIngredient) -> Unit,
+    onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -28,7 +28,7 @@ fun ToppingsSection(
 
         ToppingsList(
             toppings = pizzaCard.pizza.toppings,
-            onToppingClicked = onToppingClicked,
+            onToppingSelected = onToppingSelected,
             columns = 3
         )
     }

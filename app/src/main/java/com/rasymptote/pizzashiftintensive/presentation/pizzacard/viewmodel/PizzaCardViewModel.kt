@@ -8,7 +8,6 @@ import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
 import com.rasymptote.pizzashiftintensive.domain.usecase.CalculateBasePizzaPriceUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.GetPizzaByIdUseCase
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.mapper.toPizzaCard
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.ui.PizzaCardScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -64,6 +63,6 @@ class PizzaCardViewModel @Inject constructor(
         it.copy(pizzaCard = it.pizzaCard.copy(selectedDough = dough))
     }
 
-    fun onToppingClicked(topping: PizzaIngredient) {
+    fun onToppingSelected(topping: PizzaIngredient) {
     }
 }
