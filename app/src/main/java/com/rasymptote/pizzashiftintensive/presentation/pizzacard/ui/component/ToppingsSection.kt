@@ -30,7 +30,6 @@ fun ToppingsSection(
             toppings = pizzaCard.pizza.toppings,
             selectedToppings = pizzaCard.selectedToppings,
             onToppingSelected = onToppingSelected,
-            columns = 3
         )
     }
 }

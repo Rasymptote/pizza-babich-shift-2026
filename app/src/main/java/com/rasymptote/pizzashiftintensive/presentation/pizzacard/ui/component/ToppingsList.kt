@@ -13,15 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
 
+private const val TOPPINGS_COLUMNS = 3
+
 @Composable
 fun ToppingsList(
     toppings: List<PizzaIngredient>,
     selectedToppings: Set<PizzaIngredient>,
     onToppingSelected: (PizzaIngredient) -> Unit,
-    columns: Int,
     modifier: Modifier = Modifier
 ) {
-    val rows = toppings.chunked(columns)
+    val rows = toppings.chunked(TOPPINGS_COLUMNS)
 
     Column(
         modifier = modifier,
@@ -31,7 +32,6 @@ fun ToppingsList(
             ToppingsRow(
                 toppings = row,
                 selectedToppings = selectedToppings,
-                columns = columns,
                 onToppingSelected = onToppingSelected
             )
         }
@@ -42,7 +42,6 @@ fun ToppingsList(
 private fun ToppingsRow(
     toppings: List<PizzaIngredient>,
     selectedToppings: Set<PizzaIngredient>,
-    columns: Int,
     onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -61,7 +60,7 @@ private fun ToppingsRow(
             )
         }
 
-        EmptyCells(count = columns - toppings.size)
+        EmptyCells(count = TOPPINGS_COLUMNS - toppings.size)
     }
 }
 
