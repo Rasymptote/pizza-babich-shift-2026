@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.component
+package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text

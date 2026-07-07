@@ -22,7 +22,7 @@ import com.rasymptote.pizzashiftintensive.R
 import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.component.PizzaCard
+import com.rasymptote.pizzashiftintensive.presentation.pizzacard.ui.component.PizzaCard
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel.PizzaCardScreenState
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel.PizzaCardViewModel
 

@@ -16,7 +16,7 @@ import com.rasymptote.pizzashiftintensive.R
 import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
 import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
 import com.rasymptote.pizzashiftintensive.presentation.component.Title
-import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.component.PizzaCatalog
+import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.component.PizzaCatalog
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogScreenState
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogViewModel
 
