@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
@@ -22,7 +23,7 @@ fun ToppingsList(
     onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val rows = toppings.chunked(TOPPINGS_COLUMNS)
+    val rows = remember { toppings.chunked(TOPPINGS_COLUMNS) }
 
     Column(
         modifier = modifier,
