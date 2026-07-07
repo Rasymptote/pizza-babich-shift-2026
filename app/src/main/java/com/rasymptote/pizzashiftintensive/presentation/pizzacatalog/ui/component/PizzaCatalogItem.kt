@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.component
+package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -10,23 +10,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.Image
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePricedPizza
 
 @Composable
 fun PizzaCatalogItem(
     pizza: BasePricedPizza,
-    onClick: (BasePricedPizza) -> Unit
+    onClick: (String) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick(pizza) },
+            .clickable { onClick(pizza.pizza.id) },
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        AsyncImage(
-            model = pizza.pizza.imageUrl,
+        Image(
+            imageUrl = pizza.pizza.imageUrl,
             contentDescription = pizza.pizza.name,
             modifier = Modifier.size(120.dp)
         )

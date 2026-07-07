@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.component
+package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +13,7 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePr
 fun PizzaCatalog(
     pizzas: List<BasePricedPizza>,
     modifier: Modifier = Modifier,
-    onPizzaCardClick: (BasePricedPizza) -> Unit
+    onPizzaCardClick: (String) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,

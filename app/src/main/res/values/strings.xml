@@ -1,6 +1,47 @@
 <resources>
     <string name="app_name">Pizza Shift Intensive</string>
     <string name="error_retry_button">Попробуйте еще раз</string>
-    <string name="default_title">Пиццы</string>
-    <string name="pizza_price">от %1$d ₽</string>
+    <string name="back_button">Назад</string>
+
+    <string name="bottom_bar_pizza">Пицца</string>
+    <string name="bottom_bar_orders">Заказы</string>
+    <string name="bottom_bar_cart">Корзина</string>
+    <string name="bottom_bar_profile">Профиль</string>
+
+    <string name="pizza_catalog_title">Пиццы</string>
+    <string name="pizza_price">от %1$d ₽</string>,
+
+    <string name="pizza_card_title">Пицца</string>
+    <string name="pizza_details">%1$d см, %2$s тесто</string>
+    <string name="currency_rub">₽</string>
+    <string name="price_format">%1$d %2$s</string>
+    <string name="toppings_section">Добавить по вкусу</string>
+
+    <string name="cart_button">Добавить в корзину</string>
+
+    <string name="ingredient_ham">Ветчина</string>
+    <string name="ingredient_mushrooms">Грибы</string>
+    <string name="ingredient_feta">Сыр фета</string>
+    <string name="ingredient_green_pepper">Зеленый перец</string>
+    <string name="ingredient_mozzarella">Моцарелла</string>
+    <string name="ingredient_bacon">Бекон</string>
+    <string name="ingredient_basil">Базилик</string>
+    <string name="ingredient_chile">Чили</string>
+    <string name="ingredient_onion">Лук</string>
+    <string name="ingredient_tomato">Помидоры</string>
+    <string name="ingredient_cheddar">Сыр чеддер</string>
+    <string name="ingredient_pepperoni">Пепперони</string>
+    <string name="ingredient_shrimp">Креветки</string>
+    <string name="ingredient_pickle">Огурцы</string>
+    <string name="ingredient_parmesan">Сыр пармезан</string>
+    <string name="ingredient_meatballs">Митболы</string>
+    <string name="ingredient_pineapple">Ананас</string>
+    <string name="ingredient_chicken_fillet">Куриное филе</string>
+
+    <string name="dough_thin">Тонкое</string>
+    <string name="dough_thick">Традиционное</string>
+
+    <string name="size_small">Маленькая</string>
+    <string name="size_medium">Средняя</string>
+    <string name="size_large">Большая</string>
 </resources>

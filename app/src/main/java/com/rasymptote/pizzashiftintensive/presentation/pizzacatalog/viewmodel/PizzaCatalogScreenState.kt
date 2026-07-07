@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui
+package com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel
 
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.model.BasePricedPizza
 
