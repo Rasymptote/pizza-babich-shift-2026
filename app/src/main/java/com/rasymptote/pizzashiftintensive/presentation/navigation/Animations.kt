@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.animation
+package com.rasymptote.pizzashiftintensive.presentation.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ContentTransform

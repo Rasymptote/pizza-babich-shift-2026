@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.component
+package com.rasymptote.pizzashiftintensive.presentation.ui.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

@@ -12,7 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.presentation.component.Image
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.Image
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 

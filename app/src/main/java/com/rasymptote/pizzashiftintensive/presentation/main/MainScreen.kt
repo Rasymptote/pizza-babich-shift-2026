@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.rasymptote.pizzashiftintensive.presentation.animation.ENTER_TRANSITION
-import com.rasymptote.pizzashiftintensive.presentation.animation.EXIT_TRANSITION
-import com.rasymptote.pizzashiftintensive.presentation.animation.PREDICTIVE_EXIT_TRANSITION
+import com.rasymptote.pizzashiftintensive.presentation.navigation.ENTER_TRANSITION
+import com.rasymptote.pizzashiftintensive.presentation.navigation.EXIT_TRANSITION
+import com.rasymptote.pizzashiftintensive.presentation.navigation.PREDICTIVE_EXIT_TRANSITION
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartRoute
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartScreen
-import com.rasymptote.pizzashiftintensive.presentation.component.BottomBar
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.BottomBar
 import com.rasymptote.pizzashiftintensive.presentation.navigation.navigateTo
 import com.rasymptote.pizzashiftintensive.presentation.navigation.toNavigationOption
 import com.rasymptote.pizzashiftintensive.presentation.orders.ui.OrdersRoute

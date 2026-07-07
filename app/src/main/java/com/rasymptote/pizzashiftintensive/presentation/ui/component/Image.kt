@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.presentation.component
+package com.rasymptote.pizzashiftintensive.presentation.ui.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

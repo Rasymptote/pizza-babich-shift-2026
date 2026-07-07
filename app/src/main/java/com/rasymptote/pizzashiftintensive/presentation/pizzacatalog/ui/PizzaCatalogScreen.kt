@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.presentation.component.ErrorMessage
-import com.rasymptote.pizzashiftintensive.presentation.component.FullScreenProgressIndicator
-import com.rasymptote.pizzashiftintensive.presentation.component.Title
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.ErrorMessage
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.FullScreenProgressIndicator
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.Title
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.component.PizzaCatalog
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogScreenState
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.viewmodel.PizzaCatalogViewModel
