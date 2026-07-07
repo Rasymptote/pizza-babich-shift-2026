@@ -14,6 +14,8 @@ class PizzaRepositoryImpl @Inject constructor(
     private val mapper: PizzaMapper
 ) : PizzaRepository {
 
+    private var cachedCatalog: PizzaCatalogResponseDto? = null
+
     override suspend fun getAll(): List<Pizza> =
         mapper.map(getCatalog())
 
@@ -24,10 +26,17 @@ class PizzaRepositoryImpl @Inject constructor(
             ?.let(mapper::map)
             ?: throw PizzaNotFoundException(id)
 
-    private suspend fun getCatalog(): PizzaCatalogResponseDto =
-        pizzaApiService.getPizzas().also { response ->
-            if (!response.success) {
-                throw ApiException(response.reason ?: "Unknown server error")
-            }
+    private suspend fun getCatalog(): PizzaCatalogResponseDto {
+        cachedCatalog?.let { return it }
+
+        val response = pizzaApiService.getPizzas()
+
+        if (!response.success) {
+            throw ApiException(response.reason ?: "Unknown server error")
         }
+
+        cachedCatalog = response
+
+        return response
+    }
 }
