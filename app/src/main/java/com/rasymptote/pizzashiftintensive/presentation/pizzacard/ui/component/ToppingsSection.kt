@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 
 @Composable

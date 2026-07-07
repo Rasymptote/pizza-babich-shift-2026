@@ -21,8 +21,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.domain.model.Ingredient
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Ingredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
 import com.rasymptote.pizzashiftintensive.presentation.ui.component.Image
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 

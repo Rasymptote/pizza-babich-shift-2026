@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.domain.model
+package com.rasymptote.pizzashiftintensive.domain.model.pizza
 
 enum class Ingredient {
     PINEAPPLE,

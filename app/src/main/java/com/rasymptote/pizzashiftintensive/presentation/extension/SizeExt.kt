@@ -2,7 +2,7 @@ package com.rasymptote.pizzashiftintensive.presentation.extension
 
 import androidx.annotation.StringRes
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.domain.model.Size
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Size
 
 @StringRes
 fun Size.titleRes(): Int = when (this) {

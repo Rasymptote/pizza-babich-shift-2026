@@ -1,4 +1,4 @@
-package com.rasymptote.pizzashiftintensive.domain.model
+package com.rasymptote.pizzashiftintensive.domain.model.pizza
 
 data class PizzaIngredient(
     val type: Ingredient,

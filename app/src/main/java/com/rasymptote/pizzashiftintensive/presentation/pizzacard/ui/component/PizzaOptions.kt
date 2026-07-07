@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaDough
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 

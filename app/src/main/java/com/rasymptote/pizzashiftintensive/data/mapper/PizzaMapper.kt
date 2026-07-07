@@ -5,13 +5,13 @@ import com.rasymptote.pizzashiftintensive.data.remote.dto.PizzaComponentDto
 import com.rasymptote.pizzashiftintensive.data.remote.dto.PizzaDto
 import com.rasymptote.pizzashiftintensive.data.remote.dto.PizzaOptionDto
 import com.rasymptote.pizzashiftintensive.di.ImageBaseUrl
-import com.rasymptote.pizzashiftintensive.domain.model.Dough
-import com.rasymptote.pizzashiftintensive.domain.model.Ingredient
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaDough
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
-import com.rasymptote.pizzashiftintensive.domain.model.Size
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Dough
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Ingredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Pizza
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Size
 import jakarta.inject.Inject
 import okhttp3.HttpUrl
 
