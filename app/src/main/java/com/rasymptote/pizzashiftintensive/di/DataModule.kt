@@ -1,6 +1,8 @@
 package com.rasymptote.pizzashiftintensive.di
 
+import com.rasymptote.pizzashiftintensive.data.repository.CartRepositoryImpl
 import com.rasymptote.pizzashiftintensive.data.repository.PizzaRepositoryImpl
+import com.rasymptote.pizzashiftintensive.domain.repository.CartRepository
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,9 @@ interface DataModule {
     fun bindPizzaRepository(
         impl: PizzaRepositoryImpl
     ): PizzaRepository
+
+    @Binds
+    fun bindCartRepository(
+        impl: CartRepositoryImpl
+    ): CartRepository
 }
