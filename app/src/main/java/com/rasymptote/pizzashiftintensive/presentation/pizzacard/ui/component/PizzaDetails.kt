@@ -43,7 +43,7 @@ fun PizzaDetails(
         Text(
             text = stringResource(
                 R.string.pizza_details,
-                pizzaConfiguration.selectedSize.diameter,
+                pizzaConfiguration.selectedSize.type.diameter,
                 stringResource(pizzaConfiguration.selectedDough.type.titleRes())
             ),
             fontSize = 16.sp
