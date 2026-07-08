@@ -12,6 +12,7 @@ import com.rasymptote.pizzashiftintensive.presentation.navigation.EXIT_TRANSITIO
 import com.rasymptote.pizzashiftintensive.presentation.navigation.PREDICTIVE_EXIT_TRANSITION
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartRoute
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartScreen
+import com.rasymptote.pizzashiftintensive.presentation.navigation.NavigationOption
 import com.rasymptote.pizzashiftintensive.presentation.ui.component.BottomBar
 import com.rasymptote.pizzashiftintensive.presentation.navigation.navigateTo
 import com.rasymptote.pizzashiftintensive.presentation.navigation.toNavigationOption
@@ -56,7 +57,10 @@ fun MainScreen() {
                 entry<PizzaCardRoute> { route ->
                     PizzaCardScreen(
                         pizzaId = route.pizzaId,
-                        onBackClick = { backStack.removeLastOrNull() }
+                        onBackClick = { backStack.removeLastOrNull() },
+                        onCartButtonClick = {
+                            backStack.navigateTo(NavigationOption.CART)
+                        }
                     )
                 }
 

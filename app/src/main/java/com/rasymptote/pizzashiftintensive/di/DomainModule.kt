@@ -2,6 +2,7 @@ package com.rasymptote.pizzashiftintensive.di
 
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculateBasePizzaPriceUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculatePizzaPriceUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.GetPizzaByIdUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.GetPizzasUseCase
 import dagger.Module
@@ -25,4 +26,7 @@ class DomainModule {
     fun providePizzaByIdUseCase(pizzaRepository: PizzaRepository): GetPizzaByIdUseCase =
         GetPizzaByIdUseCase(pizzaRepository)
 
+    @Provides
+    fun provideCalculatePizzaPriceUseCase() : CalculatePizzaPriceUseCase =
+        CalculatePizzaPriceUseCase()
 }

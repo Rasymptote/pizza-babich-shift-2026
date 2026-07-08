@@ -12,14 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 
 @Composable
 fun PizzaOptions(
-    pizzaCard: PizzaCard,
+    pizzaConfiguration: PizzaConfiguration,
     onSizeSelected: (PizzaSize) -> Unit,
     onDoughSelected: (PizzaDough) -> Unit,
     modifier: Modifier = Modifier
@@ -29,19 +29,19 @@ fun PizzaOptions(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         PizzaOptionsSelector(
-            items = pizzaCard.pizza.sizes.map { stringResource(it.type.titleRes()) },
-            selectedIndex = pizzaCard.pizza.sizes.indexOf(pizzaCard.selectedSize),
+            items = pizzaConfiguration.pizza.sizes.map { stringResource(it.type.titleRes()) },
+            selectedIndex = pizzaConfiguration.pizza.sizes.indexOf(pizzaConfiguration.selectedSize),
             onSelected = { index ->
-                onSizeSelected(pizzaCard.pizza.sizes[index])
+                onSizeSelected(pizzaConfiguration.pizza.sizes[index])
             },
             modifier = Modifier.fillMaxWidth()
         )
 
         PizzaOptionsSelector(
-            items = pizzaCard.pizza.doughs.map { stringResource(it.type.titleRes()) },
-            selectedIndex = pizzaCard.pizza.doughs.indexOf(pizzaCard.selectedDough),
+            items = pizzaConfiguration.pizza.doughs.map { stringResource(it.type.titleRes()) },
+            selectedIndex = pizzaConfiguration.pizza.doughs.indexOf(pizzaConfiguration.selectedDough),
             onSelected = { index ->
-                onDoughSelected(pizzaCard.pizza.doughs[index])
+                onDoughSelected(pizzaConfiguration.pizza.doughs[index])
             },
             modifier = Modifier.fillMaxWidth()
         )

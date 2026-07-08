@@ -16,8 +16,7 @@
     <string name="currency_rub">₽</string>
     <string name="price_format">%1$d %2$s</string>
     <string name="toppings_section">Добавить по вкусу</string>
-
-    <string name="cart_button">Добавить в корзину</string>
+    <string name="cart_button_price">Добавить в корзину за %1$d ₽</string>
 
     <string name="ingredient_ham">Ветчина</string>
     <string name="ingredient_mushrooms">Грибы</string>

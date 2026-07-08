@@ -7,14 +7,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 
 @Composable
 fun PizzaCard(
-    pizzaCard: PizzaCard,
+    pizzaConfiguration: PizzaConfiguration,
     onSizeSelected: (PizzaSize) -> Unit,
     onDoughSelected: (PizzaDough) -> Unit,
     onToppingSelected: (PizzaIngredient) -> Unit
@@ -27,7 +27,7 @@ fun PizzaCard(
     ) {
         item {
             PizzaSection(
-                pizzaCard = pizzaCard,
+                pizzaConfiguration = pizzaConfiguration,
                 onSizeSelected = onSizeSelected,
                 onDoughSelected = onDoughSelected,
             )
@@ -35,7 +35,7 @@ fun PizzaCard(
 
         item {
             ToppingsSection(
-                pizzaCard = pizzaCard,
+                pizzaConfiguration = pizzaConfiguration,
                 onToppingSelected = onToppingSelected,
             )
         }

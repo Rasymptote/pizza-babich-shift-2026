@@ -10,12 +10,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
 
 @Composable
 fun ToppingsSection(
-    pizzaCard: PizzaCard,
+    pizzaConfiguration: PizzaConfiguration,
     onToppingSelected: (PizzaIngredient) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -27,8 +27,8 @@ fun ToppingsSection(
         ToppingsSectionTitle()
 
         ToppingsList(
-            toppings = pizzaCard.pizza.toppings,
-            selectedToppings = pizzaCard.selectedToppings,
+            toppings = pizzaConfiguration.pizza.toppings,
+            selectedToppings = pizzaConfiguration.selectedToppings,
             onToppingSelected = onToppingSelected,
         )
     }
