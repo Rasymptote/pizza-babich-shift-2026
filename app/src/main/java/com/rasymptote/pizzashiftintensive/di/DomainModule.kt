@@ -1,6 +1,10 @@
 package com.rasymptote.pizzashiftintensive.di
 
+import com.rasymptote.pizzashiftintensive.domain.factory.CartItemFactory
+import com.rasymptote.pizzashiftintensive.domain.repository.CartRepository
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
+import com.rasymptote.pizzashiftintensive.domain.usecase.cart.AddCartItemUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.cart.ObserveCartItemsUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculateBasePizzaPriceUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculatePizzaPriceUseCase
 import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.GetPizzaByIdUseCase
@@ -29,4 +33,22 @@ class DomainModule {
     @Provides
     fun provideCalculatePizzaPriceUseCase() : CalculatePizzaPriceUseCase =
         CalculatePizzaPriceUseCase()
+
+    @Provides
+    fun provideCartItemFactory(
+        calculatePizzaPriceUseCase: CalculatePizzaPriceUseCase
+    ) : CartItemFactory = CartItemFactory(calculatePizzaPriceUseCase)
+
+    @Provides
+    fun provideAddCartItemUseCase(
+        cartRepository: CartRepository,
+        cartItemFactory: CartItemFactory
+    ) : AddCartItemUseCase = AddCartItemUseCase(
+        cartRepository,
+        cartItemFactory
+    )
+
+    @Provides
+    fun provideGetCartUseCase(cartRepository: CartRepository) : ObserveCartItemsUseCase =
+        ObserveCartItemsUseCase(cartRepository)
 }
