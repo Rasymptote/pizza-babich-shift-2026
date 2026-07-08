@@ -19,7 +19,7 @@ fun CartEntity.toDomain(): CartItem {
 
 fun CartItem.toEntity(): CartEntity {
     return CartEntity(
-        id = id,
+        id = id ?: 0,
         pizzaId = pizzaId,
         pizzaName = pizzaName,
         imageUrl = imageUrl,

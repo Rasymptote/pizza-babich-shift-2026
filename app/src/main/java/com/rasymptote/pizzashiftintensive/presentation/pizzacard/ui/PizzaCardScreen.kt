@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.rasymptote.pizzashiftintensive.R
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.ui.component.PizzaCard
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel.PizzaCardScreenState
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel.PizzaCardViewModel
@@ -36,7 +37,7 @@ fun PizzaCardScreen(
     viewModel: PizzaCardViewModel = hiltViewModel(),
     pizzaId: String,
     onBackClick: () -> Unit,
-    onCartButtonClick: () -> Unit
+    onAddToCartClick: (PizzaConfiguration) -> Unit,
 ) {
     LaunchedEffect(pizzaId) {
         viewModel.getPizzaCard(pizzaId = pizzaId)
@@ -77,7 +78,7 @@ fun PizzaCardScreen(
                             R.string.cart_button_price,
                             currentState.price
                         ),
-                        onClick = onCartButtonClick,
+                        onClick = { onAddToCartClick(currentState.pizzaConfiguration) },
                         modifier = Modifier
                             .padding(horizontal = 16.dp, vertical = 12.dp)
                             .align(Alignment.BottomCenter)

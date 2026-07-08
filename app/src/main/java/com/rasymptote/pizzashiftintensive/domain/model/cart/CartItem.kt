@@ -5,7 +5,7 @@ import com.rasymptote.pizzashiftintensive.domain.model.pizza.Ingredient
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.Size
 
 data class CartItem(
-    val id: Int,
+    val id: Int? = null,
     val pizzaId: String,
     val pizzaName: String,
     val imageUrl: String,
