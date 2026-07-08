@@ -43,4 +43,7 @@
     <string name="size_small">Маленькая</string>
     <string name="size_medium">Средняя</string>
     <string name="size_large">Большая</string>
+
+    <string name="cart_title">Корзина</string>
+
 </resources>

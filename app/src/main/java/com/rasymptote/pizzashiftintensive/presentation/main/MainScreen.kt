@@ -4,16 +4,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.rasymptote.pizzashiftintensive.presentation.navigation.ENTER_TRANSITION
-import com.rasymptote.pizzashiftintensive.presentation.navigation.EXIT_TRANSITION
-import com.rasymptote.pizzashiftintensive.presentation.navigation.PREDICTIVE_EXIT_TRANSITION
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartRoute
 import com.rasymptote.pizzashiftintensive.presentation.cart.ui.CartScreen
+import com.rasymptote.pizzashiftintensive.presentation.cart.viewmodel.CartViewModel
+import com.rasymptote.pizzashiftintensive.presentation.navigation.ENTER_TRANSITION
+import com.rasymptote.pizzashiftintensive.presentation.navigation.EXIT_TRANSITION
 import com.rasymptote.pizzashiftintensive.presentation.navigation.NavigationOption
-import com.rasymptote.pizzashiftintensive.presentation.ui.component.BottomBar
+import com.rasymptote.pizzashiftintensive.presentation.navigation.PREDICTIVE_EXIT_TRANSITION
 import com.rasymptote.pizzashiftintensive.presentation.navigation.navigateTo
 import com.rasymptote.pizzashiftintensive.presentation.navigation.toNavigationOption
 import com.rasymptote.pizzashiftintensive.presentation.orders.ui.OrdersRoute
@@ -24,10 +25,13 @@ import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.PizzaCata
 import com.rasymptote.pizzashiftintensive.presentation.pizzacatalog.ui.PizzaCatalogScreen
 import com.rasymptote.pizzashiftintensive.presentation.profile.ui.ProfileRoute
 import com.rasymptote.pizzashiftintensive.presentation.profile.ui.ProfileScreen
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.BottomBar
 
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    cartViewModel: CartViewModel = hiltViewModel()
+) {
     val backStack = rememberNavBackStack(PizzaCatalogRoute)
 
     Scaffold(
@@ -58,14 +62,20 @@ fun MainScreen() {
                     PizzaCardScreen(
                         pizzaId = route.pizzaId,
                         onBackClick = { backStack.removeLastOrNull() },
-                        onCartButtonClick = {
-                            backStack.navigateTo(NavigationOption.CART)
+                        onAddToCartClick = { configuration ->
+                            cartViewModel.addItem(configuration)
+                            backStack.add(CartRoute)
                         }
                     )
                 }
 
                 entry<OrdersRoute> { OrdersScreen() }
-                entry<CartRoute> { CartScreen() }
+                entry<CartRoute> {
+                    CartScreen(
+                        viewModel = cartViewModel,
+                        onBackClick = { backStack.navigateTo(NavigationOption.PIZZA) }
+                    )
+                }
                 entry<ProfileRoute> { ProfileScreen() }
             }
         )
