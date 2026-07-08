@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
-import com.rasymptote.pizzashiftintensive.domain.usecase.CalculateBasePizzaPriceUseCase
-import com.rasymptote.pizzashiftintensive.domain.usecase.GetPizzaByIdUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculateBasePizzaPriceUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.GetPizzaByIdUseCase
 import com.rasymptote.pizzashiftintensive.presentation.pizzacard.mapper.toPizzaCard
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

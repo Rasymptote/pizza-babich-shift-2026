@@ -1,10 +1,10 @@
-package com.rasymptote.pizzashiftintensive.domain.usecase
+package com.rasymptote.pizzashiftintensive.domain.usecase.pizza
 
 import com.rasymptote.pizzashiftintensive.domain.model.pizza.Pizza
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
 
-class GetPizzaByIdUseCase(
+class GetPizzasUseCase(
     private val pizzaRepository: PizzaRepository,
 ) {
-    suspend operator fun invoke(pizzaId: String): Pizza = pizzaRepository.getById(pizzaId)
+    suspend operator fun invoke(): List<Pizza> = pizzaRepository.getAll()
 }
