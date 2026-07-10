@@ -7,10 +7,12 @@ import androidx.room.Update
 import com.rasymptote.pizzashiftintensive.data.local.entity.CartEntity
 import kotlinx.coroutines.flow.Flow
 
+private const val CART_TABLE = "cart"
+
 @Dao
 interface CartDao {
 
-    @Query("SELECT * FROM cart")
+    @Query("SELECT * FROM $CART_TABLE")
     fun getCart(): Flow<List<CartEntity>>
 
     @Insert
@@ -19,9 +21,9 @@ interface CartDao {
     @Update
     suspend fun updateCartItem(item: CartEntity)
 
-    @Query("DELETE FROM cart WHERE id = :id")
+    @Query("DELETE FROM $CART_TABLE WHERE id = :id")
     suspend fun deleteCartItem(id: Int)
 
-    @Query("DELETE FROM cart")
+    @Query("DELETE FROM $CART_TABLE")
     suspend fun clearCart()
 }
