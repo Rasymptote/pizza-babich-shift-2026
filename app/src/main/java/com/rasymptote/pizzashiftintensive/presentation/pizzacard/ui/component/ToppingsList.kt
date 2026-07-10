@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
 
 private const val TOPPINGS_COLUMNS = 3
 

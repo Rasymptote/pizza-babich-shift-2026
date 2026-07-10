@@ -2,12 +2,13 @@ package com.rasymptote.pizzashiftintensive.presentation.pizzacard.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaDough
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaIngredient
-import com.rasymptote.pizzashiftintensive.domain.model.PizzaSize
-import com.rasymptote.pizzashiftintensive.domain.usecase.CalculateBasePizzaPriceUseCase
-import com.rasymptote.pizzashiftintensive.domain.usecase.GetPizzaByIdUseCase
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.mapper.toPizzaCard
+import com.rasymptote.pizzashiftintensive.domain.mapper.toPizzaConfiguration
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaDough
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaIngredient
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaSize
+import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.CalculatePizzaPriceUseCase
+import com.rasymptote.pizzashiftintensive.domain.usecase.pizza.GetPizzaByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PizzaCardViewModel @Inject constructor(
     private val getPizzaByIdUseCase: GetPizzaByIdUseCase,
-    private val calculateBasePizzaPriceUseCase: CalculateBasePizzaPriceUseCase,
+    private val calculatePizzaPriceUseCase: CalculatePizzaPriceUseCase,
 ) : ViewModel() {
 
     private val _state =
@@ -27,14 +28,16 @@ class PizzaCardViewModel @Inject constructor(
 
     val state = _state.asStateFlow()
 
-    fun getPizzaCard(id: String) {
+    fun getPizzaCard(pizzaId: String) {
         _state.value = PizzaCardScreenState.Loading
 
         viewModelScope.launch(exceptionHandler) {
-            val pizza = getPizzaByIdUseCase(pizzaId = id)
-            val pizzaBasePrice = calculateBasePizzaPriceUseCase(pizza = pizza)
+            val pizza = getPizzaByIdUseCase(pizzaId = pizzaId)
+            val configuration = pizza.toPizzaConfiguration()
+
             _state.value = PizzaCardScreenState.Content(
-                pizza.toPizzaCard(pizzaBasePrice)
+                pizzaConfiguration = configuration,
+                price = calculatePizzaPriceUseCase(configuration)
             )
         }
     }
@@ -46,36 +49,48 @@ class PizzaCardViewModel @Inject constructor(
         )
     }
 
-    private inline fun updateContent(
-        transform: (PizzaCardScreenState.Content) -> PizzaCardScreenState.Content
+    private inline fun updateConfiguration(
+        transform: (PizzaConfiguration) -> PizzaConfiguration
     ) {
         _state.update { state ->
-            if (state is PizzaCardScreenState.Content) transform(state)
-            else state
+            if (state is PizzaCardScreenState.Content) {
+                val updatedConfiguration =
+                    transform(state.pizzaConfiguration)
+
+                state.copy(
+                    pizzaConfiguration = updatedConfiguration,
+                    price = calculatePizzaPriceUseCase(updatedConfiguration)
+                )
+            } else {
+                state
+            }
         }
     }
 
-    fun onSizeSelected(size: PizzaSize) = updateContent {
-        it.copy(pizzaCard = it.pizzaCard.copy(selectedSize = size))
-    }
 
-    fun onDoughSelected(dough: PizzaDough) = updateContent {
-        it.copy(pizzaCard = it.pizzaCard.copy(selectedDough = dough))
-    }
-
-    fun onToppingSelected(topping: PizzaIngredient) = updateContent { state ->
-        val current = state.pizzaCard.selectedToppings
-
-        val updated = if (topping in current) {
-            current - topping
-        } else {
-            current + topping
+    fun onSizeSelected(size: PizzaSize) {
+        updateConfiguration {
+            it.copy(selectedSize = size)
         }
+    }
 
-        state.copy(
-            pizzaCard = state.pizzaCard.copy(
-                selectedToppings = updated
+    fun onDoughSelected(dough: PizzaDough) {
+        updateConfiguration {
+            it.copy(selectedDough = dough)
+        }
+    }
+
+    fun onToppingSelected(topping: PizzaIngredient) {
+        updateConfiguration {
+            val toppings = if (topping in it.selectedToppings) {
+                it.selectedToppings - topping
+            } else {
+                it.selectedToppings + topping
+            }
+
+            it.copy(
+                selectedToppings = toppings
             )
-        )
+        }
     }
 }

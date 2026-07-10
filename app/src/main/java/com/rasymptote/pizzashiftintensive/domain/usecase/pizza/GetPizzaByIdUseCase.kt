@@ -1,6 +1,6 @@
-package com.rasymptote.pizzashiftintensive.domain.usecase
+package com.rasymptote.pizzashiftintensive.domain.usecase.pizza
 
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Pizza
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
 
 class GetPizzaByIdUseCase(

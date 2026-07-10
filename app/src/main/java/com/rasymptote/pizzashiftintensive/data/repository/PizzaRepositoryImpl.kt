@@ -5,7 +5,7 @@ import com.rasymptote.pizzashiftintensive.data.mapper.PizzaMapper
 import com.rasymptote.pizzashiftintensive.data.remote.PizzaRemoteDataSource
 import com.rasymptote.pizzashiftintensive.data.remote.dto.PizzaCatalogResponseDto
 import com.rasymptote.pizzashiftintensive.domain.exception.PizzaNotFoundException
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Pizza
 import com.rasymptote.pizzashiftintensive.domain.repository.PizzaRepository
 import javax.inject.Inject
 

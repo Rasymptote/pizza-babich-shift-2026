@@ -12,13 +12,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.presentation.ui.component.Image
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.PizzaConfiguration
 import com.rasymptote.pizzashiftintensive.presentation.extension.titleRes
-import com.rasymptote.pizzashiftintensive.presentation.pizzacard.model.PizzaCard
+import com.rasymptote.pizzashiftintensive.presentation.ui.component.Image
 
 @Composable
 fun PizzaDetails(
-    pizzaCard: PizzaCard,
+    pizzaConfiguration: PizzaConfiguration,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -27,15 +27,15 @@ fun PizzaDetails(
     ) {
 
         Image(
-            imageUrl = pizzaCard.pizza.imageUrl,
-            contentDescription = pizzaCard.pizza.name,
+            imageUrl = pizzaConfiguration.pizza.imageUrl,
+            contentDescription = pizzaConfiguration.pizza.name,
             modifier = Modifier
                 .padding(horizontal = 54.dp, vertical = 32.dp)
                 .align(Alignment.CenterHorizontally)
         )
 
         Text(
-            text = pizzaCard.pizza.name,
+            text = pizzaConfiguration.pizza.name,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
         )
@@ -43,14 +43,14 @@ fun PizzaDetails(
         Text(
             text = stringResource(
                 R.string.pizza_details,
-                pizzaCard.selectedSize.diameter,
-                stringResource(pizzaCard.selectedDough.type.titleRes())
+                pizzaConfiguration.selectedSize.type.diameter,
+                stringResource(pizzaConfiguration.selectedDough.type.titleRes())
             ),
             fontSize = 16.sp
         )
 
         Text(
-            text = pizzaCard.pizza.description,
+            text = pizzaConfiguration.pizza.description,
             fontSize = 16.sp
         )
     }

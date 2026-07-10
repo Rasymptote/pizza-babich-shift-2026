@@ -1,6 +1,6 @@
-package com.rasymptote.pizzashiftintensive.domain.usecase
+package com.rasymptote.pizzashiftintensive.domain.usecase.pizza
 
-import com.rasymptote.pizzashiftintensive.domain.model.Pizza
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Pizza
 
 class CalculateBasePizzaPriceUseCase {
     operator fun invoke(pizza: Pizza): Int =

@@ -2,7 +2,7 @@ package com.rasymptote.pizzashiftintensive.presentation.extension
 
 import androidx.annotation.StringRes
 import com.rasymptote.pizzashiftintensive.R
-import com.rasymptote.pizzashiftintensive.domain.model.Dough
+import com.rasymptote.pizzashiftintensive.domain.model.pizza.Dough
 
 @StringRes
 fun Dough.titleRes(): Int = when (this) {
